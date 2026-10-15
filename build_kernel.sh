@@ -22,6 +22,7 @@ export CLANG_TRIPLE=aarch64-linux-gnu-
 # Create output directory and configure
 mkdir -p out
 make O=out ARCH=arm64 CC=clang $DEFCONFIG
+grep -E 'CONFIG_INPUT_TOUCHSCREEN|CONFIG_TOUCHSCREEN_MTK|CONFIG_TOUCHSCREEN_MTK_NT36xxx' out/.config
 
 make O=out -j$(nproc) ARCH=arm64 \
      CC=clang AR=llvm-ar NM=llvm-nm \
